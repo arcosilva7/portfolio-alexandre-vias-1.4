@@ -1,0 +1,1974 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alexandre Vias | Portfolio IA & Data</title>
+
+    <meta name="description"
+          content="Portfolio d'Alexandre Vias, étudiant à l'ECE Bordeaux en développement, intelligence artificielle et data. Découvrez ses projets et ses compétences.">
+
+    <meta name="theme-color" content="#07111f">
+
+    <!-- Font Awesome : icônes -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <style>
+        :root {
+            --background: #07111f;
+            --background-light: #0d1a2b;
+            --card: #101f32;
+            --card-hover: #142941;
+
+            --blue: #3b82f6;
+            --blue-light: #60a5fa;
+            --blue-bright: #93c5fd;
+
+            --text: #f4f7fb;
+            --text-light: #aab7c7;
+
+            --border: rgba(255,255,255,0.08);
+            --green: #22c55e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        section {
+            padding: 90px 0;
+            scroll-margin-top: 75px;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(7,17,31,0.94);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        nav {
+            min-height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span,
+        footer span {
+            color: var(--blue-light);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 17px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            font-size: 0.88rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue-light);
+        }
+
+        .nav-link-social {
+            font-size: 1.2rem !important;
+        }
+
+        .menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* BOUTONS */
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 22px;
+            border-radius: 9px;
+            border: 1px solid var(--blue);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--blue-light);
+            border-color: var(--blue-light);
+            color: #07111f;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(59,130,246,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--blue-light);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(59,130,246,0.12);
+            transform: translateY(-3px);
+        }
+
+        /* ACCUEIL */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            right: -180px;
+            top: 20%;
+            background: rgba(59,130,246,0.09);
+            filter: blur(100px);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(59,130,246,0.12);
+            color: var(--blue-light);
+            border: 1px solid rgba(96,165,250,0.25);
+            padding: 8px 15px;
+            border-radius: 30px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(34,197,94,0.6);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.6rem,6vw,5rem);
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: var(--blue-light);
+        }
+
+        .hero h2 {
+            font-size: clamp(1.2rem,3vw,1.8rem);
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            color: var(--text-light);
+            max-width: 720px;
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-socials {
+            display: flex;
+            gap: 18px;
+            margin-top: 35px;
+        }
+
+        .hero-socials a {
+            width: 43px;
+            height: 43px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-light);
+            background: var(--card);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .hero-socials a:hover {
+            color: var(--blue-light);
+            border-color: var(--blue);
+            transform: translateY(-4px);
+            background: var(--card-hover);
+        }
+
+        /* TITRES */
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(1.8rem,4vw,2.4rem);
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 i {
+            color: var(--blue-light);
+            margin-right: 8px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 55px;
+            height: 3px;
+            background: var(--blue);
+            border-radius: 10px;
+            margin: 20px auto 0;
+        }
+
+        /* À PROPOS */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(2,minmax(0,1fr));
+            gap: 25px;
+        }
+
+        .about-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            border-color: rgba(96,165,250,0.35);
+            transform: translateY(-4px);
+        }
+
+        .about-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .about-card h3 i {
+            color: var(--blue-light);
+            margin-right: 8px;
+        }
+
+        .about-card p {
+            color: var(--text-light);
+        }
+
+        /* PROJETS */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2,minmax(0,1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.35s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            background: var(--card-hover);
+            border-color: rgba(96,165,250,0.5);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        .project-icon {
+            width: 58px;
+            height: 58px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            color: var(--blue-light);
+            background: rgba(59,130,246,0.12);
+            border: 1px solid rgba(96,165,250,0.2);
+            border-radius: 14px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .project-icon {
+            color: white;
+            background: var(--blue);
+            border-color: var(--blue-light);
+            transform: translateY(-3px) rotate(-3deg);
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .project-card:hover h3 {
+            color: var(--blue-light);
+        }
+
+        .project-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex-grow: 1;
+            transition: color 0.3s ease;
+        }
+
+        .project-card:hover p {
+            color: #dbeafe;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 22px;
+        }
+
+        .project-tech span {
+            font-size: 0.82rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background: rgba(59,130,246,0.07);
+            border: 1px solid var(--border);
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .project-tech span i {
+            color: var(--blue-light);
+            margin-right: 5px;
+        }
+
+        .project-card:hover .project-tech span {
+            border-color: rgba(96,165,250,0.4);
+            background: rgba(59,130,246,0.15);
+            color: var(--blue-bright);
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--blue-light);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: white;
+        }
+
+        .project-link:hover i:last-child {
+            transform: translateX(5px);
+        }
+
+        /* COMPÉTENCES */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2,minmax(0,1fr));
+            gap: 25px;
+        }
+
+        .skill {
+            margin-bottom: 23px;
+        }
+
+        .skill:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .skill-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-name i {
+            width: 20px;
+            text-align: center;
+            color: var(--blue-light);
+        }
+
+        .skill-percent {
+            color: var(--blue-light);
+            font-size: 0.9rem;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: var(--background-light);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg,var(--blue),var(--blue-light));
+            border-radius: 20px;
+        }
+
+        /* EXPÉRIENCES */
+
+        .timeline {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 0 0 38px 32px;
+            border-left: 2px solid rgba(59,130,246,0.35);
+        }
+
+        .timeline-item:last-child {
+            border-left: 2px solid transparent;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -7px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--blue);
+            border: 2px solid var(--background);
+            border-radius: 50%;
+            box-shadow: 0 0 12px rgba(59,130,246,0.4);
+        }
+
+        .timeline-date {
+            color: var(--blue-light);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 3px;
+        }
+
+        .timeline-item h4 {
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item p {
+            color: var(--text-light);
+        }
+
+        .timeline-item:hover h3 {
+            color: var(--blue-light);
+        }
+
+        /* FORMATION */
+
+        .formation-grid {
+            display: grid;
+            gap: 20px;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .formation-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 28px;
+            transition: all 0.3s ease;
+        }
+
+        .formation-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(96,165,250,0.4);
+            background: var(--card-hover);
+        }
+
+        .formation-card h3 {
+            color: var(--blue-light);
+            margin-bottom: 6px;
+        }
+
+        .formation-card h3 i {
+            margin-right: 8px;
+        }
+
+        .formation-card h4 {
+            margin-bottom: 5px;
+        }
+
+        .formation-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .formation-card p {
+            color: var(--text-light);
+        }
+
+        /* CERTIFICATIONS */
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(2,minmax(0,1fr));
+            gap: 25px;
+        }
+
+        .certification-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 28px;
+            transition: all 0.35s ease;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-6px);
+            background: var(--card-hover);
+            border-color: rgba(96,165,250,0.45);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        }
+
+        .certification-card h3 {
+            color: var(--blue-light);
+            margin-bottom: 14px;
+        }
+
+        .certification-card h3 i {
+            margin-right: 8px;
+        }
+
+        .certification-card p {
+            color: var(--text-light);
+            margin-bottom: 18px;
+        }
+
+        .certification-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .certification-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 11px 0;
+            color: var(--text-light);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .certification-list li:last-child {
+            border-bottom: none;
+        }
+
+        .certification-list li i {
+            color: var(--blue-light);
+            margin-top: 5px;
+        }
+
+        .certification-provider {
+            display: inline-block;
+            font-size: 0.8rem;
+            color: var(--blue-light);
+            background: rgba(59,130,246,0.1);
+            border: 1px solid rgba(96,165,250,0.2);
+            border-radius: 20px;
+            padding: 4px 10px;
+            margin-bottom: 18px;
+        }
+
+        /* CONTACT */
+
+        .contact-container {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .contact-container > p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 22px;
+            border-radius: 10px;
+            color: var(--text);
+            background: var(--card);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .social-btn i {
+            font-size: 1.3rem;
+            color: var(--blue-light);
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-4px);
+            color: white;
+            border-color: var(--blue);
+            background: var(--card-hover);
+            box-shadow: 0 8px 25px rgba(59,130,246,0.15);
+        }
+
+        .social-btn:hover i {
+            color: white;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 28px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 18px;
+        }
+
+        .footer-socials a {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .footer-socials a:hover {
+            color: var(--blue-light);
+            transform: translateY(-3px);
+        }
+
+        /* ANIMATIONS */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ACCESSIBILITÉ */
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--blue-light);
+            outline-offset: 4px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1050px) {
+            .nav-links {
+                gap: 10px;
+            }
+
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 850px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+                padding: 12px 20px 20px;
+                background: rgba(7,17,31,0.98);
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 11px;
+                font-size: 0.95rem;
+            }
+
+            .about-grid,
+            .projects-grid,
+            .skills-grid,
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 75px 0;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                width: 92%;
+            }
+
+            .hero h1 {
+                font-size: 2.6rem;
+                letter-spacing: -1px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .project-card,
+            .about-card,
+            .certification-card,
+            .formation-card {
+                padding: 22px;
+            }
+
+            .social-links {
+                flex-direction: column;
+            }
+
+            .social-btn {
+                width: 100%;
+            }
+
+            .hero-socials {
+                margin-top: 28px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header>
+        <div class="container">
+
+            <nav aria-label="Navigation principale">
+
+                <a href="#accueil" class="logo">
+                    Alex<span>.</span>
+                </a>
+
+                <ul class="nav-links" id="navLinks">
+
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#apropos">À propos</a></li>
+                    <li><a href="#projets">Projets</a></li>
+                    <li><a href="#competences">Compétences</a></li>
+                    <li><a href="#experiences">Expériences</a></li>
+                    <li><a href="#formation">Formation</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+
+                    <li>
+                        <a
+                            href="https://fr.linkedin.com/in/alexandre-vias-71a1133a2/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="nav-link-social"
+                            aria-label="LinkedIn"
+                            title="LinkedIn"
+                        >
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://github.com/arcosilva7"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="nav-link-social"
+                            aria-label="GitHub"
+                            title="GitHub"
+                        >
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <button
+                    class="menu-btn"
+                    id="menuBtn"
+                    type="button"
+                    aria-label="Ouvrir le menu"
+                    aria-expanded="false"
+                    aria-controls="navLinks"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- ACCUEIL -->
+
+    <section class="hero" id="accueil">
+
+        <div class="container">
+
+            <div class="hero-content reveal">
+
+                <div class="hero-badge">
+                    <span class="status-dot"></span>
+                    À la recherche d'un stage de deuxième année
+                </div>
+
+                <h1>
+                    Bonjour, je suis
+                    <span>Alexandre Vias</span>
+                </h1>
+
+                <h2>
+                    Étudiant en Bachelor Développement en Intelligence Artificielle
+                </h2>
+
+                <p>
+                    Passionné par le développement, l'intelligence artificielle
+                    et les nouvelles technologies, je développe mes compétences
+                    à travers des projets personnels et académiques.
+                    Je recherche un stage de deuxième année pour mettre mes
+                    connaissances en pratique, découvrir le monde professionnel
+                    et continuer à progresser dans le domaine informatique.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#projets" class="btn btn-primary">
+                        <i class="fa-solid fa-code"></i>
+                        Découvrir mes projets
+                    </a>
+
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Me contacter
+                    </a>
+
+                </div>
+
+                <div class="hero-socials">
+
+                    <a
+                        href="https://fr.linkedin.com/in/alexandre-vias-71a1133a2/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="LinkedIn"
+                        title="LinkedIn"
+                    >
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+
+                    <a
+                        href="https://github.com/arcosilva7"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub"
+                        title="GitHub"
+                    >
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+
+                    <a
+                        href="mailto:alexvias633@gmail.com"
+                        aria-label="E-mail"
+                        title="E-mail"
+                    >
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- À PROPOS -->
+
+    <section id="apropos">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+                <h2>
+                    <i class="fa-solid fa-user"></i>
+                    À propos de moi
+                </h2>
+                <p>Mon parcours et ce qui m'intéresse</p>
+            </div>
+
+            <div class="about-grid">
+
+                <div class="about-card reveal">
+
+                    <h3>
+                        <i class="fa-solid fa-laptop-code"></i>
+                        Qui suis-je ?
+                    </h3>
+
+                    <p>
+                        Je suis étudiant à l'ECE Bordeaux en Bachelor
+                        Développement en Intelligence Artificielle.
+                        J'aime comprendre comment fonctionnent les technologies
+                        et apprendre en réalisant des projets concrets.
+                        Je m'intéresse particulièrement à la programmation,
+                        à l'intelligence artificielle et à la data.
+                    </p>
+
+                </div>
+
+                <div class="about-card reveal">
+
+                    <h3>
+                        <i class="fa-solid fa-bullseye"></i>
+                        Ce que je recherche
+                    </h3>
+
+                    <p>
+                        Je recherche un stage de deuxième année dans le
+                        développement informatique, l'intelligence artificielle,
+                        la data ou un domaine proche. Mon objectif est de
+                        contribuer à des projets concrets, d'apprendre auprès
+                        de professionnels et de gagner en expérience.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJETS -->
+
+    <section id="projets">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+                <h2>
+                    <i class="fa-solid fa-laptop-code"></i>
+                    Mes projets
+                </h2>
+                <p>Des projets personnels et académiques</p>
+            </div>
+
+            <div class="projects-grid">
+
+                <!-- ALEXAI -->
+
+                <article class="project-card reveal">
+
+                    <div class="project-icon">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+
+                    <h3>alexAI</h3>
+
+                    <p>
+                        Projet personnel développé en Python.
+                        alexAI est un assistant sur lequel je travaille
+                        progressivement, avec une gestion des informations
+                        et une mémoire enregistrée dans un fichier JSON.
+                        Ce projet me permet d'explorer la logique conversationnelle
+                        et différentes approches de l'intelligence artificielle.
+                    </p>
+
+                    <div class="project-tech">
+                        <span><i class="fa-brands fa-python"></i> Python</span>
+                        <span><i class="fa-solid fa-brain"></i> IA</span>
+                        <span><i class="fa-solid fa-database"></i> JSON</span>
+                    </div>
+
+                    <a
+                        href="https://photos.app.goo.gl/TwPwkB1mNtFCy8bQ9"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-link"
+                    >
+                        <i class="fa-regular fa-images"></i>
+                        Voir le code / aperçu
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </article>
+
+
+                <!-- CHEFAI -->
+
+                <article class="project-card reveal">
+
+                    <div class="project-icon">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+
+                    <h3>ChefAI</h3>
+
+                    <p>
+                        Application de cuisine assistée par intelligence
+                        artificielle, développée avec Python et Streamlit.
+                        Ce projet explore l'utilisation de l'IA pour proposer
+                        une expérience interactive autour des recettes
+                        et de la préparation des repas.
+                    </p>
+
+                    <div class="project-tech">
+                        <span><i class="fa-brands fa-python"></i> Python</span>
+                        <span><i class="fa-solid fa-brain"></i> IA générative</span>
+                        <span><i class="fa-solid fa-window-maximize"></i> Streamlit</span>
+                    </div>
+
+                    <span class="project-link">
+                        <i class="fa-solid fa-code"></i>
+                        Projet personnel
+                    </span>
+
+                </article>
+
+
+                <!-- MORPION -->
+
+                <article class="project-card reveal">
+
+                    <div class="project-icon">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+
+                    <h3>Morpion Mortal Game</h3>
+
+                    <p>
+                        Jeu de morpion réalisé en HTML, CSS et JavaScript.
+                        Le projet propose plusieurs modes de jeu, dont
+                        le mode joueur contre joueur et le mode contre
+                        une intelligence artificielle.
+                    </p>
+
+                    <div class="project-tech">
+                        <span><i class="fa-brands fa-html5"></i> HTML</span>
+                        <span><i class="fa-brands fa-css3-alt"></i> CSS</span>
+                        <span><i class="fa-brands fa-js"></i> JavaScript</span>
+                        <span><i class="fa-solid fa-brain"></i> IA</span>
+                    </div>
+
+                    <a
+                        href="https://arcosilva7.github.io/JEU-DU-MORPION/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-link"
+                    >
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        Voir le projet
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </article>
+
+
+                <!-- ROBOT ECE CUP -->
+
+                <article class="project-card reveal">
+
+                    <div class="project-icon">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+
+                    <h3>Robot ECE Cup</h3>
+
+                    <p>
+                        Projet réalisé en équipe autour d'un robot utilisant
+                        un ESP32. Cette expérience m'a permis de découvrir
+                        la programmation embarquée et de travailler sur
+                        un projet technique collectif.
+                    </p>
+
+                    <div class="project-tech">
+                        <span><i class="fa-solid fa-microchip"></i> ESP32</span>
+                        <span><i class="fa-solid fa-gears"></i> Arduino</span>
+                        <span><i class="fa-solid fa-code"></i> C/C++</span>
+                    </div>
+
+                    <a
+                        href="https://photos.app.goo.gl/vaWQA6f9Y1WaNArE7"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-link"
+                    >
+                        <i class="fa-regular fa-images"></i>
+                        Voir le projet
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </article>
+
+
+                <!-- PROJETS EN C -->
+
+                <article class="project-card reveal">
+
+                    <div class="project-icon">
+                        <i class="fa-solid fa-terminal"></i>
+                    </div>
+
+                    <h3>Projets en C</h3>
+
+                    <p>
+                        Exercices et projets de programmation en C réalisés
+                        dans le cadre de ma formation. Ils me permettent
+                        de renforcer ma logique, mon raisonnement algorithmique
+                        et ma compréhension des bases de la programmation.
+                    </p>
+
+                    <div class="project-tech">
+                        <span><i class="fa-solid fa-code"></i> C</span>
+                        <span><i class="fa-solid fa-diagram-project"></i> Algorithmique</span>
+                        <span><i class="fa-solid fa-terminal"></i> Programmation</span>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMPÉTENCES -->
+
+    <section id="competences">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+                <h2>
+                    <i class="fa-solid fa-gears"></i>
+                    Mes compétences
+                </h2>
+                <p>Technologies et domaines que je travaille</p>
+            </div>
+
+            <div class="skills-grid">
+
+                <div class="about-card reveal">
+
+                    <h3>
+                        <i class="fa-solid fa-code"></i>
+                        Développement
+                    </h3>
+
+                    <div class="skill">
+                        <div class="skill-info">
+                            <span class="skill-name">
+                                <i class="fa-brands fa-python"></i> Python
+                            </span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-info">
+                            <span class="skill-name">
+                                <i class="fa-solid fa-code"></i> C
+                            </span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-info">
+                            <span class="skill-name">
+                                <i class="fa-brands fa-html5"></i> HTML / CSS
+                            </span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-info">
+                            <span class="skill-name">
+                                <i class="fa-brands fa-js"></i> JavaScript
+                            </span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:70%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-info">
+                            <span class="skill-name">
+                                <i class="fa-brands fa-php"></i> PHP / MySQL
+                            </span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:70%"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="about-card reveal">
+
+                    <h3>
+                        <i class="fa-solid fa-brain"></i>
+                        Informatique & Data
+                    </h3>
+
+                    <div class="skill">
+                        <div class="skill-info">
+                            <span class="skill-name">
+                                <i class="fa-brands fa-github"></i> Git / GitHub
+                            </span>
+                            <span class="skill-percent">65%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:65%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-info">
+                            <span class="skill-name">
+                                <i class="fa-brands fa-linux"></i> Linux
+                            </span>
+                            <span class="skill-percent">65%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:65%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-info">
+                            <span class="skill-name">
+                                <i class="fa-solid fa-diagram-project"></i> Algorithmique
+                            </span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-info">
+                            <span class="skill-name">
+                                <i class="fa-solid fa-brain"></i> IA / Machine Learning
+                            </span>
+                            <span class="skill-percent">60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:60%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-info">
+                            <span class="skill-name">
+                                <i class="fa-solid fa-network-wired"></i> Réseaux
+                            </span>
+                            <span class="skill-percent">60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:60%"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <p style="text-align:center;color:var(--text-light);font-size:0.85rem;margin-top:22px;">
+                Les pourcentages sont indicatifs et représentent mon estimation personnelle de mon niveau.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPÉRIENCES -->
+
+    <section id="experiences">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+                <h2>
+                    <i class="fa-solid fa-briefcase"></i>
+                    Mes expériences
+                </h2>
+                <p>Expériences professionnelles et projets personnels</p>
+            </div>
+
+            <div class="timeline">
+
+                <div class="timeline-item reveal">
+
+                    <div class="timeline-date">
+                        Août 2026 – Aujourd'hui
+                    </div>
+
+                    <h3>Agent d'hôtel</h3>
+
+                    <h4>
+                        <i class="fa-solid fa-building"></i>
+                        WILAU
+                    </h4>
+
+                    <p>
+                        Expérience professionnelle dans le secteur hôtelier.
+                        Cette activité me permet de développer mon sens de
+                        l'organisation, ma ponctualité, mon autonomie et ma
+                        capacité à respecter des consignes.
+                    </p>
+
+                </div>
+
+                <div class="timeline-item reveal">
+
+                    <div class="timeline-date">
+                        Septembre 2026 – Aujourd'hui
+                    </div>
+
+                    <h3>Développement d'un assistant IA — alexAI</h3>
+
+                    <h4>
+                        <i class="fa-solid fa-robot"></i>
+                        Projet personnel
+                    </h4>
+
+                    <p>
+                        Développement progressif d'un assistant personnel
+                        en Python. Travail sur la logique conversationnelle,
+                        la gestion de la mémoire avec JSON et l'exploration
+                        de techniques liées à l'intelligence artificielle.
+                    </p>
+
+                    <p style="margin-top:12px;">
+                        <a
+                            href="https://photos.app.goo.gl/TwPwkB1mNtFCy8bQ9"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-link"
+                        >
+                            <i class="fa-regular fa-images"></i>
+                            Voir alexAI
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </p>
+
+                </div>
+
+                <div class="timeline-item reveal">
+
+                    <div class="timeline-date">
+                        Décembre 2025 et Avril 2026
+                    </div>
+
+                    <h3>Bénévole</h3>
+
+                    <h4>
+                        <i class="fa-solid fa-recycle"></i>
+                        AREMAS — Tri et recyclage des déchets
+                    </h4>
+
+                    <p>
+                        Participation à des activités de tri et de recyclage
+                        dans un contexte associatif, avec une contribution
+                        au travail collectif et au respect des consignes.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FORMATION -->
+
+    <section id="formation">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+                <h2>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    Ma formation
+                </h2>
+                <p>Mon parcours académique</p>
+            </div>
+
+            <div class="formation-grid">
+
+                <div class="formation-card reveal">
+
+                    <h3>
+                        <i class="fa-solid fa-brain"></i>
+                        Bachelor Développement, Intelligence Artificielle & Data
+                    </h3>
+
+                    <h4>ECE Bordeaux</h4>
+
+                    <div class="formation-date">
+                        2025 – 2027
+                    </div>
+
+                    <p>
+                        Formation orientée vers le développement informatique,
+                        l'intelligence artificielle, la programmation,
+                        l'algorithmique et les technologies numériques.
+                        Je m'intéresse également à l'analyse et à la
+                        manipulation des données.
+                    </p>
+
+                </div>
+
+                <div class="formation-card reveal">
+
+                    <h3>
+                        <i class="fa-solid fa-book-open"></i>
+                        Baccalauréat scientifique
+                    </h3>
+
+                    <h4>Lycée Sagbado — Togo</h4>
+
+                    <div class="formation-date">
+                        2025 — Mention Assez Bien
+                    </div>
+
+                    <p>
+                        Parcours scientifique avec des enseignements
+                        en mathématiques et en sciences, qui m'ont permis
+                        de développer mon raisonnement et mes capacités
+                        d'analyse.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CERTIFICATIONS -->
+
+    <section id="certifications">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+                <h2>
+                    <i class="fa-solid fa-certificate"></i>
+                    Certifications et apprentissages
+                </h2>
+
+                <p>
+                    Formations complémentaires et compétences développées
+                    en dehors des cours.
+                </p>
+            </div>
+
+            <div class="certifications-grid">
+
+                <article class="certification-card reveal">
+
+                    <h3>
+                        <i class="fa-solid fa-award"></i>
+                        Certifications Liora
+                    </h3>
+
+                    <span class="certification-provider">
+                        <i class="fa-solid fa-certificate"></i>
+                        Liora
+                    </span>
+
+                    <p>
+                        Certifications complémentaires autour de
+                        l'intelligence artificielle générative et des
+                        outils numériques.
+                    </p>
+
+                    <ul class="certification-list">
+
+                        <li>
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>
+                                <strong>IA & GenAI — Prompt Engineering
+                                Niveau 1 (FR)</strong>
+                            </span>
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>
+                                <strong>Google Sheets — No Code —
+                                TechAway Niveau 1 (FR)</strong>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                    <div class="project-tech">
+                        <span><i class="fa-solid fa-brain"></i> IA générative</span>
+                        <span><i class="fa-solid fa-comment-dots"></i> Prompt Engineering</span>
+                        <span><i class="fa-solid fa-table"></i> Google Sheets</span>
+                        <span><i class="fa-solid fa-wand-magic-sparkles"></i> No Code</span>
+                    </div>
+
+                </article>
+
+
+                <article class="certification-card reveal">
+
+                    <h3>
+                        <i class="fa-solid fa-book-open"></i>
+                        Apprentissages personnels
+                    </h3>
+
+                    <p>
+                        En complément de ma formation, je consolide mes
+                        connaissances en réalisant des projets pratiques
+                        et en explorant différentes technologies.
+                    </p>
+
+                    <ul class="certification-list">
+
+                        <li>
+                            <i class="fa-brands fa-python"></i>
+                            <span>Programmation Python</span>
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-code"></i>
+                            <span>Programmation C et algorithmique</span>
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-globe"></i>
+                            <span>Développement Web</span>
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-brain"></i>
+                            <span>Découverte de l'intelligence artificielle</span>
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-database"></i>
+                            <span>Analyse et manipulation de données</span>
+                        </li>
+
+                        <li>
+                            <i class="fa-brands fa-github"></i>
+                            <span>Git et GitHub</span>
+                        </li>
+
+                        <li>
+                            <i class="fa-brands fa-linux"></i>
+                            <span>Bases de Linux</span>
+                        </li>
+
+                    </ul>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="contact-container reveal">
+
+                <div class="section-title">
+                    <h2>
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Me contacter
+                    </h2>
+
+                    <p>
+                        Vous avez une opportunité de stage ou souhaitez
+                        échanger avec moi ? N'hésitez pas à me contacter.
+                    </p>
+                </div>
+
+                <div class="social-links">
+
+                    <a
+                        href="mailto:alexvias633@gmail.com"
+                        class="social-btn"
+                    >
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>E-mail</span>
+                    </a>
+
+                    <a
+                        href="https://fr.linkedin.com/in/alexandre-vias-71a1133a2/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-btn"
+                    >
+                        <i class="fa-brands fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+
+                    <a
+                        href="https://github.com/arcosilva7"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-btn"
+                    >
+                        <i class="fa-brands fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-socials">
+
+                <a
+                    href="https://fr.linkedin.com/in/alexandre-vias-71a1133a2/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    title="LinkedIn"
+                >
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+
+                <a
+                    href="https://github.com/arcosilva7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                    title="GitHub"
+                >
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+                <a
+                    href="mailto:alexvias633@gmail.com"
+                    aria-label="E-mail"
+                    title="E-mail"
+                >
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+
+            </div>
+
+            <p>
+                © 2026 Alexandre Vias —
+                <span>Développement · IA · Data</span>
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        // MENU MOBILE
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+        const menuIcon = menuBtn.querySelector("i");
+
+        menuBtn.addEventListener("click", () => {
+
+            const isOpen = navLinks.classList.toggle("active");
+
+            menuBtn.setAttribute("aria-expanded", isOpen);
+
+            menuBtn.setAttribute(
+                "aria-label",
+                isOpen ? "Fermer le menu" : "Ouvrir le menu"
+            );
+
+            menuIcon.classList.toggle("fa-bars", !isOpen);
+            menuIcon.classList.toggle("fa-xmark", isOpen);
+
+        });
+
+
+        // FERMER LE MENU APRÈS UN CLIC
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("active");
+
+                menuBtn.setAttribute("aria-expanded", "false");
+                menuBtn.setAttribute("aria-label", "Ouvrir le menu");
+
+                menuIcon.classList.remove("fa-xmark");
+                menuIcon.classList.add("fa-bars");
+
+            });
+
+        });
+
+
+        // ANIMATIONS AU SCROLL
+
+        const revealElements = document.querySelectorAll(".reveal");
+
+        const reduceMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        if (reduceMotion || !("IntersectionObserver" in window)) {
+
+            revealElements.forEach(element => {
+                element.classList.add("active");
+            });
+
+        } else {
+
+            const observer = new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("active");
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+            revealElements.forEach(element => {
+                observer.observe(element);
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
